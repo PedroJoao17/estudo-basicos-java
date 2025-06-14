@@ -20,7 +20,7 @@ public class Biblioteca {
                     "sair"
             };
 
-    public String listarUsuarios() {
+    public void listarUsuarios() {
         StringBuilder lista = new StringBuilder();
 
         int i = 1;
@@ -29,11 +29,10 @@ public class Biblioteca {
             lista.append(i).append(" - ").append(usuario.getNome()).append("\n");
             i++;
         }
-        System.out.println("Usuários cadastrados: ");
-        return lista.toString();
+        System.out.println("Usuários cadastrados: \n" + lista.toString());
     }
 
-    public String listarLivros() {
+    public void listarLivros() {
         StringBuilder lista = new StringBuilder();
 
         int i = 1;
@@ -41,8 +40,17 @@ public class Biblioteca {
         for (Livro livro : acervoLivros) {
             lista.append(i).append(" - ").append(livro.getTitulo()).append(" - ").append(livro.getStatus()).append("\n");
         }
-        System.out.println("Livros no acervo: ");
-        return lista.toString();
+        System.out.println("Livros no acervo: \n" + lista.toString());
+    }
+
+    public void listarEmprestimos(){
+        //vou adicionar a opção de listar empréstimos
+    }
+
+    public void listarOpcoes() {
+        for (int i = 0; i < opcoes.length; i++) {
+            System.out.println(i + 1 + " - " + opcoes[i]);
+        }
     }
 
     public void inserirUsuario(String nome) {
@@ -54,13 +62,14 @@ public class Biblioteca {
     public void inserirLivro(String titulo) {
         Livro novoLivro = new Livro(titulo);
         acervoLivros.add(novoLivro);
-        System.out.println("Livro " + novoLivro.getStatus() + " adicionado com sucesso");
+        System.out.println("Livro " + novoLivro.getTitulo() + " adicionado com sucesso");
     }
 
     public void emprestarLivro(Usuario usuario, Livro livro) {
         if (usuario != null && livro != null) {
             Emprestimo novoEmprestimo = new Emprestimo(usuario, livro);
             emprestimos.add(novoEmprestimo);
+            livro.status = Status.emprestado;
             System.out.println("Empréstimo realizado com sucesso");
             System.out.println("Usuário que emprestou: " + usuario.getNome());
             System.out.println("Livro emprestado: " + livro.getTitulo());
@@ -72,17 +81,12 @@ public class Biblioteca {
     public void devolverLivro(Usuario usuario, Livro livro) {
         if (usuario != null && livro != null) {
             emprestimos.removeIf(e -> e.getUsuario().equals(usuario) && e.getLivro().equals(livro));
+            livro.status = Status.disponivel;
             System.out.println("Devolução realizada com sucesso");
             System.out.println("Usuário que devolveu: " + usuario.getNome());
             System.out.println("Livro devolvido: " + livro.getTitulo());
         } else {
             System.out.println("Usuário e/ou livro inválidos");
-        }
-    }
-
-    public void listarOpcoes() {
-        for (int i = 0; i < opcoes.length; i++) {
-            System.out.println(i + 1 + " - " + opcoes[i]);
         }
     }
 
