@@ -6,6 +6,7 @@ public class Emprestimo {
     public Emprestimo(Usuario usuario, Livro livro){
         this.usuario = usuario;
         this.livro = livro;
+        livro.status = Status.emprestado;
     }
 
     public Usuario getUsuario(){
