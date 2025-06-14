@@ -5,19 +5,5 @@ public class Main {
 
         System.out.println("Olá, bem vindo a biblioteca, deseja fazer ?");
 
-        int opcao;
-        String[] opcoes =
-                {
-                        "listar livros",
-                        "listar usuarios",
-                        "inserir usuario",
-                        "inserir livro",
-                        "emprestar",
-                        "devolver"
-                };
-
-        for (int i = 0; i <= opcoes.length; i++) {
-            System.out.println(i + 1 + " - " + opcoes[i]);
-        }
     }
 }

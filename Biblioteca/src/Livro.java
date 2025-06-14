@@ -3,17 +3,17 @@ public class Livro {
     String titulo;
     Status status;
 
-    public Livro (String titulo){
+    public Livro(String titulo) {
 
         this.titulo = titulo;
         this.status = Status.disponivel;
     }
 
-    public String getTitulo(){
+    public String getTitulo() {
         return titulo;
     }
 
-    public Status getStatus(){
+    public Status getStatus() {
         return status;
     }
 }
