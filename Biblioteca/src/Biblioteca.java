@@ -13,6 +13,7 @@ public class Biblioteca {
             {
                     "listar usuarios",
                     "listar livros",
+                    "listas empréstimos",
                     "inserir usuario",
                     "inserir livro",
                     "emprestar",
@@ -34,17 +35,20 @@ public class Biblioteca {
 
     public void listarLivros() {
         StringBuilder lista = new StringBuilder();
-
         int i = 1;
-
         for (Livro livro : acervoLivros) {
             lista.append(i).append(" - ").append(livro.getTitulo()).append(" - ").append(livro.getStatus()).append("\n");
         }
         System.out.println("Livros no acervo: \n" + lista.toString());
     }
 
-    public void listarEmprestimos(){
-        //vou adicionar a opção de listar empréstimos
+    public void listarEmprestimos() {
+        StringBuilder lista = new StringBuilder();
+        int i = 1;
+        for (Emprestimo e : emprestimos) {
+            lista.append(i).append(" - ").append(e.getUsuario().getNome()).append(" - ").append(e.getLivro().getTitulo()).append("\n");
+        }
+        System.out.println("Empréstimos ativos: \n" + lista.toString());
     }
 
     public void listarOpcoes() {

@@ -31,18 +31,23 @@ public class Main {
                     break;
 
                 case 3:
+                    System.out.println("Empréstimos realizados: \n");
+                    biblioteca.listarEmprestimos();
+                    break;
+
+                case 4:
                     System.out.println("Insira o nome do usuário: ");
                     novoUsuario = sc.next();
                     biblioteca.inserirUsuario(novoUsuario);
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("Insira o título do livro: ");
                     novoLivro = sc.next();
                     biblioteca.inserirLivro(novoLivro);
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("Insira o nome usuário que vai emprestar: ");
                     System.out.println("Usuário: ");
                     nomeUsuario = sc.next();
@@ -59,7 +64,7 @@ public class Main {
                     }
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("Insira o nome do usuário que vai devolver: ");
                     System.out.println("Usuário: ");
                     nomeUsuario = sc.next();
@@ -80,7 +85,7 @@ public class Main {
                     }
                     break;
 
-                case 7:
+                case 8:
                     System.out.println("fim do programa");
                     controle = false;
                     break;
