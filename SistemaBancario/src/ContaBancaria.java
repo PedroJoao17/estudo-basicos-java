@@ -14,11 +14,15 @@ public class ContaBancaria {
     ArrayList<ContaBancaria> contas = new ArrayList<>();
     ArrayList<Transacoes> transacoes = new ArrayList<>();
 
-    public ContaBancaria(String nomeTitular) {
-        contador++;
-        numeroConta = contador;
-        this.titular = nomeTitular;
-    }
+    String[] opcoes = {
+            "Criar usuário",
+            "Criar conta",
+            "Depositar",
+            "Sacar",
+            "Transferir",
+            "Relatório de Transferências",
+            "Sair do programa"
+    };
 
     public void criarUsuario(String nomeUsuario) {
         if (!nomeUsuario.matches("^[a-zA-ZÀ-ú\\s]+$")) {
@@ -33,7 +37,9 @@ public class ContaBancaria {
     public void criarConta(String nomeTitular) {
         for (Usuario u : usuarios) {
             if (u.getNome().equalsIgnoreCase(nomeTitular)) {
-                ContaBancaria conta = new ContaBancaria(nomeTitular);
+                ContaBancaria conta = new ContaBancaria();
+                titular = nomeTitular;
+                numeroConta = contador;
                 System.out.println("Conta criada com sucesso");
             } else {
                 System.out.println("Usuário não cadastrado, cadastre-o antes");
@@ -42,33 +48,47 @@ public class ContaBancaria {
         System.out.println("Algo deu errado.");
     }
 
+    public void listarOpções() {
+        for (int i = 0; i < opcoes.length; i++) {
+            System.out.println(i + 1 + " - " + opcoes[i]);
+        }
+    }
+
     public int getConta() {
         return numeroConta;
+    }
+
+    public String getTitular() {
+        return titular;
     }
 
     public float getQtdConta() {
         return qtdConta;
     }
 
-    public void depositar(int numeroConta, float deposito) {
-        if (deposito > 0) {
-            this.qtdConta += deposito;
-            transacao = new Transacoes("Depósito");
-            transacoes.add(transacao);
-            System.out.println("Depósito adicionado com sucesso, quantia depositada: " + deposito);
-        } else {
-            System.out.println("Valor para depósito inválido");
+    public void depositar(String nomeTitular, float deposito) {
+        for (ContaBancaria c : contas) {
+            if (c.getTitular().equalsIgnoreCase(nomeTitular) && deposito > 0) {
+                this.qtdConta += deposito;
+                transacao = new Transacoes("Depósito");
+                transacoes.add(transacao);
+                System.out.println("Depósito adicionado com sucesso, quantia depositada: " + deposito);
+            } else {
+                System.out.println("Valor para depósito inválido");
+            }
         }
     }
 
-    public void sacar(float saque) {
-        if (this.qtdConta > saque) {
-            this.qtdConta -= saque;
-            transacao = new Transacoes("Saque");
-            transacoes.add(transacao);
-            System.out.println("Saque realizado com sucesso, quantia sacada: " + saque);
-        } else {
-            System.out.println("saldo insuficiente para saque.");
+    public void sacar(String nomeTitular, float saque) {
+        for (ContaBancaria c : contas) {
+            if (c.getTitular().equalsIgnoreCase(nomeTitular) && c.getQtdConta() > saque) {
+                this.qtdConta -= saque;
+                transacao = new Transacoes("Saque");
+                transacoes.add(transacao);
+                System.out.println("Saque realizado com sucesso, quantia sacada: " + saque);
+            } else {
+                System.out.println("saldo insuficiente para saque.");
+            }
         }
     }
 
