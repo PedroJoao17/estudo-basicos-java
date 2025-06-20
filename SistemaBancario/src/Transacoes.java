@@ -15,7 +15,7 @@ public class Transacoes {
         return numeroTransacoes;
     }
 
-    public String getMotivoTransacao() {
+    public String getDescricaoTransacao() {
         return motivoTransacao;
     }
 }
