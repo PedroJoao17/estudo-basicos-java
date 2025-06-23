@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/Interfaces/Pagamentos/Pagamentos.iml" filepath="$PROJECT_DIR$/Interfaces/Pagamentos/Pagamentos.iml" />
       <module fileurl="file://$PROJECT_DIR$/Atividades simples/SistemaBancario/SistemaBancario.iml" filepath="$PROJECT_DIR$/Atividades simples/SistemaBancario/SistemaBancario.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interfaces/Transportes/Transportes.iml" filepath="$PROJECT_DIR$/Interfaces/Transportes/Transportes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exceções/atividade_1/atividade_1.iml" filepath="$PROJECT_DIR$/Exceções/atividade_1/atividade_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exceções/atividade_2/atividade_2.iml" filepath="$PROJECT_DIR$/Exceções/atividade_2/atividade_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Exceções/atividade_3/atividade_3.iml" filepath="$PROJECT_DIR$/Exceções/atividade_3/atividade_3.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java.iml" filepath="$PROJECT_DIR$/.idea/java.iml" />
     </modules>
   </component>
